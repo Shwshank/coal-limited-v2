@@ -1,7 +1,66 @@
 <section id="section2" class="section2">
   <div class="container-fluid">
-    <div class="row">
-      sec2
+    <div class="row  justify-content-center"  data-aos="fade-up" >
+
+      <div class="col-md-4 graphDisplay1"  >
+          <div echarts [options]="option1" class="demo-chart"></div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 graphDisplay1"  >
+      </div>
+
+      <div class="col-md-4 col-sm-6 graphDisplay1"  >
+        <div echarts [options]="option3" class="demo-chart"></div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 graphDisplay1"  >
+        <div echarts [options]="option4" class="demo-chart"></div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 graphDisplay1"  >
+        <div echarts [options]="option5" class="demo-chart"></div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 graphDisplay1"  >
+        <div echarts [options]="option6" class="demo-chart"></div>
+      </div>
+
+      <!-- Fab button -->
+
+      <div class="fab">
+        <span class="fab-action-button text-center">
+              <i class="fabFilter fa fa-filter fa-2x"></i>
+
+        </span>
+        <ul class="fab-buttons">
+          <li class="fab-buttons__item">
+            <a href="#" class="fab-buttons__link" data-tooltip="Year 2017">
+            <span class="menu"> <b>1</b> </span>
+            </a>
+          </li>
+          <li class="fab-buttons__item">
+            <a href="#" class="fab-buttons__link" data-tooltip="March - April">
+              <span class="menu"> <b>2</b> </span>
+            </a>
+          </li>
+          <li class="fab-buttons__item">
+            <a href="#" class="fab-buttons__link" data-tooltip="May - July">
+              <span class="menu"> <b>3</b> </span>
+            </a>
+          </li>
+          <li class="fab-buttons__item">
+            <a href="#" class="fab-buttons__link" data-tooltip="Aug - Oct">
+              <span class="menu"> <b>4</b> </span>
+            </a>
+          </li>
+          <li class="fab-buttons__item">
+            <a href="#" class="fab-buttons__link" data-tooltip="Oct - Dec">
+              <span class="menu"> <b>5</b> </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
