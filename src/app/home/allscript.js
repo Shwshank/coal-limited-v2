@@ -1,20 +1,25 @@
-// var moveForce = 30; // max popup movement in pixels
-// var rotateForce = 20; // max popup rotation in deg
-//
-// $(document).mousemove(function(e) {
-//     var docX = $(document).width();
-//     var docY = $(document).height();
-//
-//     var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
-//     var moveY = (e.pageY - docY/2) / (docY/2) * -moveForce;
-//
-//     var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
-//     var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
-//
-//     $('.popup')
-//         .css('left', moveX+'px')
-//         .css('top', moveY+'px')
-//         .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
-// });
-
 AOS.init();
+
+(function($) {
+  "use strict"; // Start of use strict
+
+  // Smooth scrolling using jQuery easing
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - 54)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
+
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+})(jQuery); // End of use strict
