@@ -4,6 +4,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ProjectService } from './service/ProjectService';
 import { Section1Component } from './home/section1/section1.component';
 import { Section2Component } from './home/section2/section2.component';
 import { Section3Component } from './home/section3/section3.component';
@@ -22,7 +23,7 @@ import { Section4Component } from './home/section4/section4.component';
     BrowserModule,
     NgxEchartsModule
   ],
-  providers: [],
+  providers: [ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

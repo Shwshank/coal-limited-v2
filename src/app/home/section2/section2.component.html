@@ -6,7 +6,27 @@
           <div echarts [options]="option1" class="demo-chart"></div>
       </div>
 
-      <div class="col-md-4 col-sm-6 graphDisplay1"  >
+      <div class="col-md-4 col-sm-6 graphDisplay1"  style="overflow-y:auto">
+        <table class="table table-fixed" style="font-size:15px">
+          <thead style="background-color: gray" >
+            <tr>
+              <th>#</th>
+              <th>Sub Name</th>
+              <th>Mode / Contract</th>
+              <th>Volume (mmt)</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let data of option2_tableData; let i = index">
+              <th scope="row">{{(i+1)}}</th>
+              <td>{{data.sub}}</td>
+              <td>{{data.mode}} / {{data.contract}}</td>
+              <td>{{data.volume}}</td>
+            </tr>
+
+          </tbody>
+        </table>
       </div>
 
       <div class="col-md-4 col-sm-6 graphDisplay1"  >

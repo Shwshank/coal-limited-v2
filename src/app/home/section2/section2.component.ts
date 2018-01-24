@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../../service/ProjectService';
 
 @Component({
   selector: 'app-section2',
@@ -14,10 +15,21 @@ export class Section2Component implements OnInit {
   option5: any;
   option6: any;
 
-  constructor() { }
+  option1_legends: any;
+  option1_data1: any;
+  option1_data2: any;
+
+  option2_tableData: any;
+
+  option3_legends: any;
+  option3_data1: any;
+  option3_data2: any;
+
+  constructor(private projectService: ProjectService) {}
 
   ngOnInit() {
     this.getGraph1();
+    this.getGraph2();
     this.getGraph3();
     this.getGraph4();
     this.getGraph5();
@@ -25,7 +37,18 @@ export class Section2Component implements OnInit {
   }
 
   getGraph1() {
+    this.option1_legends = ['1','2','3'];
+    this.option1_data1 = [ {value:335, name:'1'}, {value:679, name:'2'}, {value:1548, name:'3'}];
+    this.option1_data2 = [ {value:335, name:'a1'}, {value:310, name:'a2'}, {value:234, name:'a3'}, {value:135, name:'4'}, {value:1048, name:'5'}, {value:251, name:'6'}, {value:147, name:'7'}, {value:102, name:'8'}]
+
     this.option1 = {
+        // color: ['gray','coral'],
+        title : {
+            text: 'Volume Signed',
+            subtext: '',
+            x: 'center',
+            color:'white'
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -33,14 +56,14 @@ export class Section2Component implements OnInit {
         legend: {
             orient: 'vertical',
             x: 'left',
-            data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
+            data:this.option1_legends
         },
         series: [
             {
-                name:'访问来源',
+                name:'g1',
                 type:'pie',
                 selectedMode: 'single',
-                radius: [0, '30%'],
+                radius: [0, '40%'],
 
                 label: {
                     normal: {
@@ -52,77 +75,55 @@ export class Section2Component implements OnInit {
                         show: false
                     }
                 },
-                data:[
-                    {value:335, name:'直达', selected:true},
-                    {value:679, name:'营销广告'},
-                    {value:1548, name:'搜索引擎'}
-                ]
+                data: this.option1_data1
             },
             {
-                name:'访问来源',
+                name:'g11',
                 type:'pie',
-                radius: ['40%', '55%'],
+                radius: ['50%', '70%'],
                 label: {
                     normal: {
-                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                        backgroundColor: '#eee',
-                        borderColor: '#aaa',
-                        borderWidth: 1,
-                        borderRadius: 4,
-                        // shadowBlur:3,
-                        // shadowOffsetX: 2,
-                        // shadowOffsetY: 2,
-                        // shadowColor: '#999',
-                        // padding: [0, 7],
-                        rich: {
-                            a: {
-                                color: '#999',
-                                lineHeight: 22,
-                                align: 'center'
-                            },
-                            // abg: {
-                            //     backgroundColor: '#333',
-                            //     width: '100%',
-                            //     align: 'right',
-                            //     height: 22,
-                            //     borderRadius: [4, 4, 0, 0]
-                            // },
-                            hr: {
-                                borderColor: '#aaa',
-                                width: '100%',
-                                borderWidth: 0.5,
-                                height: 0
-                            },
-                            b: {
-                                fontSize: 16,
-                                lineHeight: 33
-                            },
-                            per: {
-                                color: '#eee',
-                                backgroundColor: '#334455',
-                                padding: [2, 4],
-                                borderRadius: 2
-                            }
-                        }
+                      position: 'inner'
                     }
                 },
-                data:[
-                    {value:335, name:'直达'},
-                    {value:310, name:'邮件营销'},
-                    {value:234, name:'联盟广告'},
-                    {value:135, name:'视频广告'},
-                    {value:1048, name:'百度'},
-                    {value:251, name:'谷歌'},
-                    {value:147, name:'必应'},
-                    {value:102, name:'其他'}
-                ]
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: this.option1_data2
             }
         ]
     };
+  }
+
+  getGraph2() {
+    this.option2_tableData = [
+      {sub:"CCL", mode:"Road", contract:"40", volume:"440"},
+      {sub:"CCL", mode:"Rail", contract:"50", volume:"640"},
+      {sub:"MCL", mode:"Road", contract:"40", volume:"440"},
+      {sub:"MCL", mode:"Rail", contract:"140", volume:"640"},
+      {sub:"NCL", mode:"Road", contract:"40", volume:"440"},
+      {sub:"NCL", mode:"Rail", contract:"21", volume:"120"},
+      {sub:"SECL", mode:"Road", contract:"40", volume:"440"},
+      {sub:"SECL", mode:"Rail", contract:"36", volume:"444"},
+      {sub:"WCL", mode:"Road", contract:"40", volume:"440"},
+      {sub:"WCL", mode:"Rail", contract:"14", volume:"344"},
+    ]
   }
 
   getGraph3() {
+    this.option3_legends = ['1','2','3'];
+    this.option3_data1 = [ {value:335, name:'1'}, {value:679, name:'2'}, {value:1548, name:'3'}];
+    this.option3_data2 = [ {value:335, name:'a1'}, {value:310, name:'a2'}, {value:234, name:'a3'}, {value:135, name:'4'}, {value:1048, name:'5'}, {value:251, name:'6'}, {value:147, name:'7'}, {value:102, name:'8'}]
+
     this.option3 = {
+        // color: ['gray','coral'],
+        title : {
+            text: 'Contract Signed',
+            subtext: '',
+            x: 'center',
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -130,14 +131,14 @@ export class Section2Component implements OnInit {
         legend: {
             orient: 'vertical',
             x: 'left',
-            data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
+            data:this.option1_legends
         },
         series: [
             {
-                name:'访问来源',
+                name:'g1',
                 type:'pie',
                 selectedMode: 'single',
-                radius: [0, '30%'],
+                radius: [0, '40%'],
 
                 label: {
                     normal: {
@@ -149,122 +150,89 @@ export class Section2Component implements OnInit {
                         show: false
                     }
                 },
-                data:[
-                    {value:335, name:'直达', selected:true},
-                    {value:679, name:'营销广告'},
-                    {value:1548, name:'搜索引擎'}
-                ]
+                data: this.option1_data1
             },
             {
-                name:'访问来源',
+                name:'g11',
                 type:'pie',
-                radius: ['40%', '55%'],
+                radius: ['50%', '70%'],
                 label: {
                     normal: {
-                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                        backgroundColor: '#eee',
-                        borderColor: '#aaa',
-                        borderWidth: 1,
-                        borderRadius: 4,
-                        // shadowBlur:3,
-                        // shadowOffsetX: 2,
-                        // shadowOffsetY: 2,
-                        // shadowColor: '#999',
-                        // padding: [0, 7],
-                        rich: {
-                            a: {
-                                color: '#999',
-                                lineHeight: 22,
-                                align: 'center'
-                            },
-                            // abg: {
-                            //     backgroundColor: '#333',
-                            //     width: '100%',
-                            //     align: 'right',
-                            //     height: 22,
-                            //     borderRadius: [4, 4, 0, 0]
-                            // },
-                            hr: {
-                                borderColor: '#aaa',
-                                width: '100%',
-                                borderWidth: 0.5,
-                                height: 0
-                            },
-                            b: {
-                                fontSize: 16,
-                                lineHeight: 33
-                            },
-                            per: {
-                                color: '#eee',
-                                backgroundColor: '#334455',
-                                padding: [2, 4],
-                                borderRadius: 2
-                            }
-                        }
+                      position: 'inner'
                     }
                 },
-                data:[
-                    {value:335, name:'直达'},
-                    {value:310, name:'邮件营销'},
-                    {value:234, name:'联盟广告'},
-                    {value:135, name:'视频广告'},
-                    {value:1048, name:'百度'},
-                    {value:251, name:'谷歌'},
-                    {value:147, name:'必应'},
-                    {value:102, name:'其他'}
-                ]
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: this.option1_data2
             }
         ]
     };
   }
 
-
   getGraph4() {
-    let xAxisData = [];
-    let data1 = [];
-    let data2 = [];
-
-    for (let i = 0; i < 100; i++) {
-      xAxisData.push('category' + i);
-      data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
-      data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
-    }
-
     this.option4 = {
-      legend: {
-        data: ['bar', 'bar2'],
-        align: 'left'
-      },
-      tooltip: {},
-      xAxis: {
-        data: xAxisData,
-        silent: false,
-        splitLine: {
-          show: false
-        }
-      },
-      yAxis: {
-      },
-      series: [{
-        name: 'bar',
-        type: 'bar',
-        data: data1,
-        animationDelay: function (idx) {
-          return idx * 10;
-        }
-      }, {
-        name: 'bar2',
-        type: 'bar',
-        data: data2,
-        animationDelay: function (idx) {
-          return idx * 10 + 100;
-        }
-      }],
-      animationEasing: 'elasticOut',
-      animationDelayUpdate: function (idx) {
-        return idx * 5;
-      }
+        title : {
+            text: 'Progress summary',
+            subtext: '',
+            x: 'center',
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+
+        grid: {
+            left: '1%',
+            right: '1%',
+            // bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ['data1','data2','data3','data4','data5','data6','data7']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'CCL',
+                type:'bar',
+                data:[320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+                name:'MCL',
+                type:'bar',
+                data:[120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name:'NCL',
+                type:'bar',
+                data:[220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name:'SECL',
+                type:'bar',
+                data:[150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name:'WCL',
+                type:'bar',
+                data:[162, 418, 264, 326, 179, 200, 444],
+            },
+
+        ]
     };
+
   }
 
   getGraph5() {
@@ -306,72 +274,50 @@ export class Section2Component implements OnInit {
   }
 
   getGraph6() {
+    let xAxisData = [];
+    let data1 = [];
+    let data2 = [];
+
+    for (let i = 0; i < 100; i++) {
+      xAxisData.push('category' + i);
+      data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
+      data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+    }
+
     this.option6 = {
-        title : {
-            text: '某地区蒸发量和降水量',
-            subtext: '纯属虚构'
-        },
-        tooltip : {
-            trigger: 'axis'
-        },
-        legend: {
-            data:['蒸发量','降水量']
-        },
-        toolbox: {
-            show : true,
-            feature : {
-                dataView : {show: true, readOnly: false},
-                magicType : {show: true, type: ['line', 'bar']},
-                restore : {show: true},
-                saveAsImage : {show: true}
-            }
-        },
-        calculable : true,
-        xAxis : [
-            {
-                type : 'category',
-                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
-            }
-        ],
-        yAxis : [
-            {
-                type : 'value'
-            }
-        ],
-        series : [
-            {
-                name:'蒸发量',
-                type:'bar',
-                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
-                markPoint : {
-                    data : [
-                        {type : 'max', name: '最大值'},
-                        {type : 'min', name: '最小值'}
-                    ]
-                },
-                markLine : {
-                    data : [
-                        {type : 'average', name: '平均值'}
-                    ]
-                }
-            },
-            {
-                name:'降水量',
-                type:'bar',
-                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
-                markPoint : {
-                    data : [
-                        {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183},
-                        {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
-                    ]
-                },
-                markLine : {
-                    data : [
-                        {type : 'average', name : '平均值'}
-                    ]
-                }
-            }
-        ]
+      legend: {
+        data: ['bar', 'bar2'],
+        align: 'left'
+      },
+      tooltip: {},
+      xAxis: {
+        data: xAxisData,
+        silent: false,
+        splitLine: {
+          show: false
+        }
+      },
+      yAxis: {
+      },
+      series: [{
+        name: 'bar',
+        type: 'bar',
+        data: data1,
+        animationDelay: function (idx) {
+          return idx * 10;
+        }
+      }, {
+        name: 'bar2',
+        type: 'bar',
+        data: data2,
+        animationDelay: function (idx) {
+          return idx * 10 + 100;
+        }
+      }],
+      animationEasing: 'elasticOut',
+      animationDelayUpdate: function (idx) {
+        return idx * 5;
+      }
     };
   }
 

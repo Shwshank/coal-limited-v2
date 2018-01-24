@@ -3,6 +3,13 @@
 // @import "~bootstrap/scss/_functions.scss";
 // @import "~bootstrap/scss/_variables.scss";
 /* You can add global styles to this file, and also import other style files */
+
+// primary color : ff7f50 or coral
+// background color : #444
+
+$primary: coral;
+$background: #444;
+
 html, body { height: 100%; }
 body {
     margin: 0;
@@ -16,7 +23,7 @@ body {
 }
 .section1{
   height: 800px;
-  border: 1px solid gray;
+  // border: 1px solid gray;
 }
 section {
   padding: 5vw 0;
@@ -31,25 +38,45 @@ body::-webkit-scrollbar {
     width: .5em;
 }
 body::-webkit-scrollbar-track {
-    background-color: #8B8B8B;
+    background-color: #9f9f9f;
 }
 body::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #393A3B;
+  background-color: gray;
   outline: 1px solid #808080;
 }
 .graphDisplay1{
-  height: 400px;
-  border: 1px solid black;
+  height: 390px;
+  border-radius: 10px;
   padding:10px;
+  background-color: rgba(152,152,152,.9);
+  max-width: 420px;
+  margin: auto;
+  border: 2px solid grey;
+  margin-top: 5px;
 }
 .cubeGraph{
   height: 720px;
-  background-color: rgba(128,128,128,.4);
+  background-color: rgba(152,152,152,.9);
   border-radius: 10px;
+  border: 2px solid grey;
 }
 .graphDisplay2{
   height: 450px;
-  border: 1px solid black;
+  // border: 1px solid black;
   padding:10px;
+  background-color: rgba(152,152,152,.9);
+}
+.graphDisplay1::-webkit-scrollbar {
+    width: .5em;
+    border-radius: 4px;
+}
+.graphDisplay1::-webkit-scrollbar-track {
+    background-color: #9f9f9f;
+    border-radius: 4px;
+}
+.graphDisplay1::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: gray;
+  outline: 1px solid #808080;
 }
